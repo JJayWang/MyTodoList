@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: 'Poppins';
+    box-sizing: border-box;
+}
+
+body {
+    background-color: blanchedalmond;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.wrapper {
+    width: 800px;
+    height: 400px;
+    display: flex;
+    gap: 10px;
+}
+
+.item {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, .2);
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.item h1 {
+    margin: 0 0 15px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    color: brown;
+}
+
+
+form .input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+form .input-group span {
+    padding-bottom: 5px;
+}
+
+form .input-group span::before {
+    content: '*';
+    color: red;
+    padding-right: 3px;
+}
+
+.input-group input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    outline: none;
+}
+
+.input-group input:focus {
+    border: 1px solid black;
+}
+
+button {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    background: brown;
+    color: #fff;
+    font-weight: 500;
+    margin: 10px 0;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.link-list {
+    display: none;
+}
+
+.list {
+    height: 100%;
+}
+
+.list ul {
+    height: 300px;
+    overflow-y: scroll;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.list ul::-webkit-scrollbar {
+    display: none;
+}
+
+.list ul li {
+    padding: 7px 15px;
+    font-size: 18px;
+    cursor: pointer;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+}
+
+.list ul li.active {
+    border: 3px solid gold;
+}
+
+li .icons i {
+    font-size: 18px;
+    padding: 7px;
+}
+
+li .icons i:hover {
+    background-color: brown;
+    color: #fff;
+    border-radius: 50%;
+}
+
+.notification-block {
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 50px;
+    min-width: 400px;
+    overflow: hidden;
+}
+
+.notification-wrap {
+    background-color: lightgoldenrodyellow;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 500;
+    transform: translateX(100%);
+}
+
+.notification-wrap.show {
+    animation: showAnimation .7s forwards;
+}
+
+@keyframes showAnimation {
+    0% {
+        transform: translateX(100%);
+    }
+
+    70% {
+        transform: translateX(-5%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+.notification-wrap.hide {
+    animation: hideAnimation .7s forwards;
+}
+
+@keyframes hideAnimation {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+
+.notification-wrap>.fas {
+    margin-left: 10px;
+}
+
+.notification-wrap .msg {
+    flex: 1;
+    padding-left: 10px;
+}
+
+.notification-wrap .close-btn {
+    background-color: gold;
+    line-height: 50px;
+    padding: 0 15px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+@media screen and (max-width:768px) {
+    .wrapper {
+        width: 400px;
+        height: 450px;
+        margin: 0 10px;
+    }
+
+    .wrapper .form {
+        display: block;
+    }
+
+    .wrapper .list {
+        display: none;
+    }
+
+    .wrapper.hidden .form {
+        display: none;
+    }
+
+    .wrapper.hidden .list {
+        display: block;
+    }
+
+    .link-list {
+        display: block;
+    }
+
+    .notification-block {
+        top: 5%;
+    }
+}
